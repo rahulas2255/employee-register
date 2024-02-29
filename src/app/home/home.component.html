@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="sideBarStatus" style="height: 92.2vh;width: 130px;" class="col-lg-2 bg-dark d-flex flex-column p-3 gap-3">
+          <a style="text-decoration: none;color: white;font-size: 21px;" class="fw-bolder" routerLink="/dashboard">HOME</a>
+          <a style="text-decoration: none;color: white;font-size: 21px;" class="fw-bolder" routerLink="/users">USERS</a>
+        <button (click)="logout()" style="text-decoration: none;" class="btn btn-link mt-auto text-light"><i class="fa-solid fa-arrow-right-from-bracket fw-bolder"></i> Logout</button>        
+        </div>
+        <div style="width: 90%;"   class="col-lg-10">
+            <div class="row p-4 d-flex ">
+                <div class="col-lg-8">
+                    <div style="height: 180px; background-image: url('https://i.pinimg.com/736x/72/da/8e/72da8e918336efe1313e62f05f090e08.jpg');" class="banner rounded p-3 d-flex align-items-center shadow">
+                        <h1 class="fw-bold text-light"> <i (click)="menuBtnclicked()" style="cursor: pointer;" class="fa-solid fa-bars me-3"></i> Welcome {{adminName}}!!!</h1>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-5 ">
+                            <app-calender></app-calender>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-6 border rounded shadow">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="min-height: 400px;" class="edit-admin border rounded p-2 shadow">
+                       <app-update-admin (onAdminChange)="onAdminChange($event)"></app-update-admin>
+                    </div>
+                    <div style="height: 180px; background-image: url('https://i.pinimg.com/736x/72/da/8e/72da8e918336efe1313e62f05f090e08.jpg');" class="banner rounded p-3 d-flex align-items-center justify-content-center shadow mt-3">
+                        <h2 class="fw-bold text-light"> <i class="fa-solid fa-users"></i>  Employees : {{userCount}} </h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
